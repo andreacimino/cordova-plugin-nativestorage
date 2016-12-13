@@ -3,7 +3,8 @@ var NativeStorageError = require('./NativeStorageError');
 
 
 function isInBrowser() {
-  inBrowser = (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova);
+  var is_xdk_emulator = window.intel && window.intel.xdk && intel.xdk.isxdk
+  inBrowser = (window.cordova && window.cordova.platformId === 'browser') || !(window.phonegap || window.cordova) || is_xdk_emulator;
   return inBrowser;
 }
 
