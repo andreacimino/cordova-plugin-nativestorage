@@ -5,6 +5,8 @@ var NativeStorageError = require('./NativeStorageError');
 function isInBrowser() {
   var is_xdk_emulator = (window.intel && window.intel.xdk && intel.xdk.isxdk) || 
       navigator.userAgent.indexOf("18.0.10") > 0 ||  navigator.userAgent.indexOf("Android 2.1") > 0;  
+  inBrowser = (window.cordova && window.cordova.platformId === 'browser') || 
+    !(window.phonegap || window.cordova) || is_xdk_emulator;
   return inBrowser;
 }
 
